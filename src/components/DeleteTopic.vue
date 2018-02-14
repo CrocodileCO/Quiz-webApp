@@ -49,7 +49,7 @@ export default {
       }, (response) => {
         this.notifications.push({
           type: 'danger',
-          message: 'Topic could not deleted'
+          message: 'Категория не была удалена, что-то пошло не так'
         })
       })
     }

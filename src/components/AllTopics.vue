@@ -23,8 +23,9 @@
           <td>{{ topic.title }}</td>
           <td><a v-bind:href="topic.imageUrl">{{ topic.imageUrl }}</a></td>
           <td>
+            <router-link :to="{name: 'Questions', params: { topicId: topic._id }}" class="btn btn-default">вопросы</router-link>
             <router-link :to="{name: 'EditTopic', params: { _id: topic._id }}" class="btn btn-primary">редактировать</router-link>
-            <router-link :to="{name: 'DeleteTopic', params: { _id: topic._id }}" class="btn btn-danger">Удалить</router-link>
+            <router-link :to="{name: 'DeleteTopic', params: { _id: topic._id }}" class="btn btn-danger">удалить</router-link>
           </td>
         </tr>
       </tbody>
