@@ -61,7 +61,7 @@ export default{
       })
     },
     fetchQuestionData: function () {
-      this.$http.get('http://localhost:3000/api/topics/' + this.$route.params.topicId + '/questions').then((response) => {
+      this.$http.get(config.api.uri + 'topics/' + this.$route.params.topicId + '/questions').then((response) => {
         this.questions = response.body
       }, (response) => {
 
