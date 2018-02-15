@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import config from '../config'
 
 export default{
   data () {
@@ -53,7 +54,7 @@ export default{
 
   methods: {
     getTopic: function () {
-      this.$http.get('http://localhost:3000/api/topics/' + this.$route.params.topicId).then((response) => {
+      this.$http.get(config.api.uri + 'topics/' + this.$route.params.topicId).then((response) => {
         this.topic = response.body
       }, (response) => {
 

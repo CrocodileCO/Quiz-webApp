@@ -24,6 +24,7 @@
 
 <script>
 import Notification from './notifications.vue'
+import config from '../config'
 
 export default {
   data () {
@@ -35,7 +36,7 @@ export default {
 
   methods: {
     addTopic: function () {
-      this.$http.post('http://localhost:3000/api/topics/', this.topic, {
+      this.$http.post(config.api.uri + 'topics/', this.topic, {
         headers: {
           'Content-Type': 'application/json'
         }

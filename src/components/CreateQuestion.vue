@@ -36,6 +36,7 @@
 
 <script>
 import Notification from './notifications.vue'
+import config from '../config'
 
 export default {
   data () {
@@ -48,7 +49,7 @@ export default {
   methods: {
     addQuestion: function () {
       this.question.topicId = this.$route.params.topicId
-      this.$http.post('http://localhost:3000/api/questions/', this.question, {
+      this.$http.post(config.api.uri + 'questions/', this.question, {
         headers: {
           'Content-Type': 'application/json'
         }

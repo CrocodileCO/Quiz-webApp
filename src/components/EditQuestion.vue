@@ -36,6 +36,7 @@
 
 <script>
 import Notification from './notifications.vue'
+import config from '../config'
 
 export default {
   data () {
@@ -51,7 +52,7 @@ export default {
 
   methods: {
     getQuestion: function () {
-      this.$http.get('http://localhost:3000/api/questions/' + this.$route.params.questionId).then((response) => {
+      this.$http.get(config.api.uri + 'questions/' + this.$route.params.questionId).then((response) => {
         this.question = response.body
       }, (response) => {
 
@@ -59,7 +60,7 @@ export default {
     },
 
     editQuestion: function () {
-      this.$http.patch('http://localhost:3000/api/questions/' + this.$route.params.questionId, this.question, {
+      this.$http.patch(config.api.uri + 'questions/' + this.$route.params.questionId, this.question, {
         headers: {
           'Content-Type': 'application/json'
         }

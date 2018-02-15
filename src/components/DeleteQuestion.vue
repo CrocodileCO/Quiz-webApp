@@ -15,6 +15,7 @@
 
 <script>
 import Notification from './notifications.vue'
+import config from '../config'
 
 export default {
   data () {
@@ -24,7 +25,7 @@ export default {
   },
   methods: {
     deletequestion: function () {
-      this.$http.delete('http://localhost:3000/api/questions/' + this.$route.params.questionId, {
+      this.$http.delete(config.api.uri + 'questions/' + this.$route.params.questionId, {
         headers: {
           'Content-Type': 'application/json'
         }

@@ -15,6 +15,7 @@
 
 <script>
 import Notification from './notifications.vue'
+import config from '../config'
 
 export default {
   data () {
@@ -30,7 +31,7 @@ export default {
 
   methods: {
     getTopic: function () {
-      this.$http.get('http://localhost:3000/api/topics/' + this.$route.params._id).then((response) => {
+      this.$http.get(config.api.uri + 'topics/' + this.$route.params._id).then((response) => {
         this.topic = response.body
       }, (response) => {
 
@@ -38,7 +39,7 @@ export default {
     },
 
     deleteTopic: function () {
-      this.$http.delete('http://localhost:3000/api/topics/' + this.$route.params._id, this.topic, {
+      this.$http.delete(config.api.uri + 'topics/' + this.$route.params._id, this.topic, {
         headers: {
           'Content-Type': 'application/json'
         }
