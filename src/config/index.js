@@ -1,5 +1,5 @@
 module.exports = {
   api: {
-    uri: 'https://eggdance.tk/api/'
+    uri: 'https://www.eggdance.tk/api/'
   }
 }
