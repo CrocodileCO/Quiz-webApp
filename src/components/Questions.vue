@@ -22,10 +22,10 @@
         <tr v-for="question in questions"
         :key="question._id">
           <td><a v-bind:href="question.imageUrl">{{ question.imageUrl }}</a></td>
-          <td>{{question.answer1}}</td>
-          <td>{{question.answer2}}</td>
-          <td>{{question.answer3}}</td>
-          <td>{{question.answer4}}</td>
+          <td>{{question.answers[0].text}}</td>
+          <td>{{question.answers[1].text}}</td>
+          <td>{{question.answers[2].text}}</td>
+          <td>{{question.answers[3].text}}</td>
           <td>
             <router-link :to="{name: 'EditQuestion', params: { questionId: question._id, topicId: topic._id }}" class="btn btn-primary">Редактировать</router-link>
             <router-link :to="{name: 'DeleteQuestion', params: { questionId: question._id, topicId: topic._id }}" class="btn btn-danger">Удалить</router-link>

@@ -1,5 +1,5 @@
 module.exports = {
   api: {
-    uri: 'https://eggdance.herokuapp.com/api/'
+    uri: 'http://eggdance.herokuapp.com/api/'
   }
 }

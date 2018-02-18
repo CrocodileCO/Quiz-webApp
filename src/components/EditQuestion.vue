@@ -10,21 +10,10 @@
         <label name="Question_image">Картинка</label>
         <input type="text" class="form-control" v-model="question.imageUrl" id="question_imageUrl" required>
       </div>
-      <div class="form-group">
-        <label name="Question_answer1">Ответ 1 (верный)</label>
-        <input type="text" class="form-control" v-model="question.answer1" id="question_answer1" required>
-      </div>
-      <div class="form-group">
-        <label name="Question_answer2">Ответ 2</label>
-        <input type="text" class="form-control" v-model="question.answer2" id="question_answer2" required>
-      </div>
-      <div class="form-group">
-        <label name="Question_answer3">Ответ 3</label>
-        <input type="text" class="form-control" v-model="question.answer3" id="question_answer3" required>
-      </div>
-      <div class="form-group">
-        <label name="Question_answer4">Ответ 4</label>
-        <input type="text" class="form-control" v-model="question.answer4" id="question_answer4" required>
+      <div class="form-group" v-for="answers in question.answers"
+        :key="answers.id">
+        <label name="Question_answer">Ответ {{answers.id}}</label>
+        <input type="text" class="form-control" v-model="answers.text" id="question_answer" required>
       </div>
 
       <div class="form-group">
