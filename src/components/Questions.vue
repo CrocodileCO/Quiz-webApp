@@ -9,7 +9,8 @@
     <table class="table table-hover" >
       <thead>
       <tr>
-        <td>Url картинки</td>
+        <td>#</td>
+        <td>Картинка</td>
         <td>Ответ 1</td>
         <td>Ответ 2</td>
         <td>Ответ 3</td>
@@ -19,9 +20,10 @@
       </thead>
 
       <tbody>
-        <tr v-for="question in questions"
+        <tr v-for="(question, index) in questions"
         :key="question._id">
-          <td><a v-bind:href="question.imageUrl">{{ question.imageUrl }}</a></td>
+        <td>{{(index+1)}}</td>
+          <td><a v-bind:href="question.imageUrl" target="_blank"><img v-bind:src="question.imageUrl"  width="50" height="50" alt=""></a></td>
           <td>{{question.answers[0].text}}</td>
           <td>{{question.answers[1].text}}</td>
           <td>{{question.answers[2].text}}</td>

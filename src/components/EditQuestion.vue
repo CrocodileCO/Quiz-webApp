@@ -5,7 +5,9 @@
       <router-link :to="{name: 'Questions', params: { topicId: this.$route.params.topicId }}">Вернуться к вопросам</router-link>
     </p>
     <notification v-bind:notifications="notifications"></notification>
-    <form v-on:submit.prevent="editQuestion">
+    <div class="row">
+      <div class="col-md-6">
+        <form v-on:submit.prevent="editQuestion">
       <div class="form-group">
         <label name="Question_image">Картинка</label>
         <input type="text" class="form-control" v-model="question.imageUrl" id="question_imageUrl" required>
@@ -20,6 +22,11 @@
         <button class="btn btn-primary">Сохранить</button>
       </div>
     </form>
+    </div>
+    <div class="col-md-6">
+      <img v-show="question.imageUrl" v-bind:src="question.imageUrl" alt="">
+    </div>
+    </div>
   </div>
 </template>
 
@@ -72,3 +79,9 @@ export default {
   }
 }
 </script>
+<style scoped>
+  img {
+    max-width: 500px;
+    max-height: 500px;
+  }
+</style>

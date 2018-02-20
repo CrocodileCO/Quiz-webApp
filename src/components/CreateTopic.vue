@@ -5,20 +5,26 @@
       <router-link :to="{ name: 'AllTopics' }">Вернуться к категориям</router-link>
     </p>
     <notification v-bind:notifications="notifications"></notification>
-
-    <form v-on:submit.prevent="addTopic">
-      <div class="form-group">
-        <label name="Topic_title">Название</label>
-        <input type="text" class="form-control" v-model="topic.title" id="Topic_title" required>
+    <div class="row">
+      <div class="col-md-6">
+        <form v-on:submit.prevent="addTopic">
+        <div class="form-group">
+          <label name="Topic_title">Название</label>
+          <input type="text" class="form-control" v-model="topic.title" id="Topic_title" required>
+        </div>
+        <div class="form-group">
+          <label name="Topic_image">Url картинки</label>
+          <input type="text" class="form-control" v-model="topic.imageUrl" id="Topic_imageUrl" required>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-primary">Создать</button>
+        </div>
+      </form>
       </div>
-      <div class="form-group">
-        <label name="Topic_image">Картинка</label>
-        <input type="text" class="form-control" v-model="topic.imageUrl" id="Topic_imageUrl" required>
+      <div class="col-md-6">
+        <img v-show="topic.imageUrl" v-bind:src="topic.imageUrl"  alt="">
       </div>
-      <div class="form-group">
-        <button class="btn btn-primary">Создать</button>
-      </div>
-    </form>
+    </div>
   </div>
 </template>
 
@@ -60,3 +66,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+  img {
+    max-width: 500px;
+    max-height: 500px;
+  }
+</style>
