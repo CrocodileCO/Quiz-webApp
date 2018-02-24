@@ -29,6 +29,10 @@
         <input type="text" class="form-control" id="question_answer4" required>
       </div>
       <div class="form-group">
+        <label name="Information">Интересный факт</label>
+        <textarea class="form-control" rows="5" id="information" v-model="question.information.text"></textarea>
+      </div>
+      <div class="form-group">
         <button class="btn btn-primary">Создать</button>
       </div>
     </form>
@@ -54,7 +58,11 @@ class Answer {
 export default {
   data () {
     return {
-      question: {},
+      question: {
+        information: {
+          text: ''
+        }
+      },
       notifications: [],
       answers: []
     }

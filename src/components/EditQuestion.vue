@@ -17,7 +17,10 @@
         <label name="Question_answer">Ответ {{answers.id}}</label>
         <input type="text" class="form-control" v-model="answers.text" id="question_answer" required>
       </div>
-
+      <div class="form-group">
+        <label name="Information">Интересный факт</label>
+        <textarea class="form-control" rows="5" id="information" v-model="question.information.text"></textarea>
+      </div>
       <div class="form-group">
         <button class="btn btn-primary">Сохранить</button>
       </div>
@@ -37,7 +40,11 @@ import config from '../config'
 export default {
   data () {
     return {
-      question: {},
+      question: {
+        information: {
+          text: String
+        }
+      },
       notifications: []
     }
   },
