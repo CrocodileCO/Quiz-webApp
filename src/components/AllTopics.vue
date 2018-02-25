@@ -1,9 +1,10 @@
 <template>
   <div id="all-topics">
     <h1>Quiz-server</h1>
-
-    <p><router-link :to="{ name: 'CreateTopic' }" class="btn btn-primary">Создать категорию</router-link></p>
-
+    <div class="row">
+      <div class="col-md-6"><p><router-link :to="{ name: 'CreateTopic' }" class="btn btn-primary">Создать категорию</router-link></p></div>
+      <div class="col-md-6"><p class="text-right"><router-link :to="{ name: 'Artists' }" class="btn btn-primary">Рекомендательная система</router-link></p></div>
+    </div>
     <div class="form-group">
       <input type="text" name="search" v-model="topicSearch" placeholder="Search topic" class="form-control" v-on:keyup="searchTopics">
     </div>

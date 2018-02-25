@@ -9,6 +9,10 @@ import Questions from '@/components/Questions'
 import CreateQuestion from '@/components/CreateQuestion'
 import EditQuestion from '@/components/EditQuestion'
 import DeleteQuestion from '@/components/DeleteQuestion'
+import Artists from '@/components/rs/Artists'
+import EditArtist from '@/components/rs/EditArtist'
+import CreateArtist from '@/components/rs/CreateArtist'
+import DeleteArtist from '@/components/rs/DeleteArtist'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -54,6 +58,26 @@ export default new Router({
       path: '/delete_questions',
       name: 'DeleteQuestion',
       component: DeleteQuestion
+    },
+    {
+      path: 'rs/artists',
+      name: 'Artists',
+      component: Artists
+    },
+    {
+      path: 'rs/edit_artist',
+      name: 'EditArtist',
+      component: EditArtist
+    },
+    {
+      path: 'rs/create_artist',
+      name: 'CreateArtist',
+      component: CreateArtist
+    },
+    {
+      path: 'rs/delete_artist',
+      name: 'DeleteArtist',
+      component: DeleteArtist
     }
   ]
 })
