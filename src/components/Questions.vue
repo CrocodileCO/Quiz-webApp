@@ -24,10 +24,7 @@
         :key="question._id">
         <td>{{(index+1)}}</td>
           <td><a v-bind:href="question.imageUrl" target="_blank"><img v-bind:src="question.imageUrl"  width="50" height="50" alt=""></a></td>
-          <td>{{question.answers[0].text}}</td>
-          <td>{{question.answers[1].text}}</td>
-          <td>{{question.answers[2].text}}</td>
-          <td>{{question.answers[3].text}}</td>
+          <td v-for="answer in question.answers" :key="answer.id">{{answer.text}} <i>({{answer.pickAmount}})</i></td>
           <td>
             <router-link :to="{name: 'EditQuestion', params: { questionId: question._id, topicId: topic._id }}" class="btn btn-primary">Редактировать</router-link>
             <router-link :to="{name: 'DeleteQuestion', params: { questionId: question._id, topicId: topic._id }}" class="btn btn-danger">Удалить</router-link>
@@ -72,3 +69,9 @@ export default{
   }
 }
 </script>
+
+<style scoped>
+  i {
+    color: gray;
+  }
+</style>

@@ -73,7 +73,7 @@ export default {
       }).then((response) => {
         this.notifications.push({
           type: 'success',
-          message: 'Данные о художнике обнолвены'
+          message: 'Данные о художнике обновлены'
         })
       }, (response) => {
         this.notifications.push({
