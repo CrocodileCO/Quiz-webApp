@@ -36,13 +36,24 @@ export default {
     return {
       artist: {},
       notifications: [],
-      options: ['Абстракционизм', 'Авангардизм', 'Академизм', 'Акционизм', 'Анахронизм', 'Андеграунд', 'Арт-деко', 'Арте повера', 'Барокко', 'Батальный жанр', 'Бидермейер', 'Бытовой жанр', 'Городской пейзаж', 'Готика', 'Дадаизм', 'Импрессионизм', 'Исторический жанр', 'Китч', 'Классицизм', 'Клуазонизм', 'Конструктивизм', 'Кубизм', 'Кубофутуризм', 'Марина', 'Минимализм', 'Модерн', 'Модернизм', 'Натурализм', 'Натюрморт', 'Неоклассицизм', 'Оп-арт', 'Пастораль', 'Поп-арт', 'Портрет', 'Постимпрессионизм', 'Постмодернизм', 'Примитивизм', 'Реализм', 'Ренессанс', 'Рококо', 'Романтизм', 'Сентиментализм', 'Символизм', 'Супрематизм', 'Сюрреализм', 'Футуризм']
+      options: []
     }
   },
-
+  created: function () {
+    this.fetchArtStylesData()
+  },
   methods: {
+    fetchArtStylesData: function () {
+      this.$http.get(config.api.uri + 'rs/' + 'artstyles').then((response) => {
+        let artstyles = response.body
+        this.options = artstyles.map(function (artstyle) {
+          return artstyle.title
+        })
+      }, (response) => {
+
+      })
+    },
     addArtist: function () {
-      console.log(this.artist)
       this.$http.post(config.api.uri + 'rs/' + 'artists/', this.artist, {
         headers: {
           'Content-Type': 'application/json'

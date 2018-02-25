@@ -13,6 +13,7 @@ import Artists from '@/components/rs/Artists'
 import EditArtist from '@/components/rs/EditArtist'
 import CreateArtist from '@/components/rs/CreateArtist'
 import DeleteArtist from '@/components/rs/DeleteArtist'
+import CreateArtStyle from '@/components/rs/CreateArtStyle'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -78,6 +79,11 @@ export default new Router({
       path: 'rs/delete_artist',
       name: 'DeleteArtist',
       component: DeleteArtist
+    },
+    {
+      path: 'rs/create_artstyle',
+      name: 'CreateArtStyle',
+      component: CreateArtStyle
     }
   ]
 })
