@@ -14,6 +14,7 @@ import EditArtist from '@/components/rs/EditArtist'
 import CreateArtist from '@/components/rs/CreateArtist'
 import DeleteArtist from '@/components/rs/DeleteArtist'
 import CreateArtStyle from '@/components/rs/CreateArtStyle'
+import GenerateQuestion from '@/components/GenerateQuestion'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -84,6 +85,11 @@ export default new Router({
       path: 'rs/create_artstyle',
       name: 'CreateArtStyle',
       component: CreateArtStyle
+    },
+    {
+      path: 'rs/gen_question',
+      name: 'GenerateQuestion',
+      component: GenerateQuestion
     }
   ]
 })

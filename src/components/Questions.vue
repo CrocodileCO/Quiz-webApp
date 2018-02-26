@@ -4,8 +4,10 @@
     <p>
       <router-link :to="{ name: 'AllTopics'}">Вернуться к категориям</router-link>
     </p>
-    <p><router-link :to="{ name: 'CreateQuestion', params: { topicId: topic._id }}" class="btn btn-primary">Создать вопрос</router-link></p>
-
+    <div class="row">
+      <div class="col-md-6"> <p><router-link :to="{ name: 'CreateQuestion', params: { topicId: topic._id }}" class="btn btn-primary">Создать вопрос</router-link></p></div>
+      <div class="col-md-6"> <p class="text-right"><router-link :to="{ name: 'GenerateQuestion', params: { topicId: topic._id }}" class="btn btn-danger">Сгенерировать вопрос</router-link></p></div>
+    </div>
     <table class="table table-hover" >
       <thead>
       <tr>
