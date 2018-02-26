@@ -135,6 +135,7 @@ export default {
             type: 'success',
             message: 'Вопрос успешно создан'
           })
+          this.answers = []
         }, (response) => {
           this.notifications.push({
             type: 'danger',
