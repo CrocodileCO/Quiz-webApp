@@ -8,6 +8,9 @@
       <div class="col-md-6"> <p><router-link :to="{ name: 'CreateQuestion', params: { topicId: topic._id }}" class="btn btn-primary">Создать вопрос</router-link></p></div>
       <div class="col-md-6"> <p class="text-right"><router-link :to="{ name: 'GenerateQuestion', params: { topicId: topic._id }}" class="btn btn-danger">Сгенерировать вопрос</router-link></p></div>
     </div>
+    <div class="form-group">
+      <input type="text" name="search" v-model="answer1Search" placeholder="Search" class="form-control" v-on:keyup="searchQuestions">
+    </div>
     <table class="table table-hover" >
       <thead>
       <tr>
@@ -43,6 +46,8 @@ import config from '../config'
 export default{
   data () {
     return {
+      answer1Search: '',
+      originalQuestions: [],
       topic: {},
       questions: []
     }
@@ -64,9 +69,27 @@ export default{
     fetchQuestionData: function () {
       this.$http.get(config.api.uri + 'topics/' + this.$route.params.topicId + '/questions').then((response) => {
         this.questions = response.body
+        this.originalQuestions = this.questions
       }, (response) => {
 
       })
+    },
+    searchQuestions: function () {
+      if (this.answer1Search === '') {
+        this.questions = this.originalQuestions
+        return
+      }
+
+      var searchedQuestions = []
+      for (var i = 0; i < this.originalQuestions.length; i++) {
+        var answer1 = this.originalQuestions[i]['answers'][0]['text'].toLowerCase()
+        console.log(answer1)
+        if (answer1.indexOf(this.answer1Search.toLowerCase()) >= 0) {
+          searchedQuestions.push(this.originalQuestions[i])
+        }
+      }
+
+      this.questions = searchedQuestions
     }
   }
 }
