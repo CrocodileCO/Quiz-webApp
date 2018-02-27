@@ -42,7 +42,8 @@
         <div class="input-group me">
           <input type="text" v-model="questionDB_ident" class="form-control" @change="getNewQuestion">
           <span class="input-group-btn">
-            <button class="btn btn-primary" type="button" @click="incIdent">Next</button>
+            <button class="btn btn-primary" type="button" @click="incIdent">следующий вопрос</button>
+            <button class="btn btn-danger" type="button" @click="removeQuestionGen">удалить</button>
           </span>
         </div>
         <p>Макс: {{questionDB.length}}</p>
@@ -82,7 +83,7 @@ export default {
 
   methods: {
     getQuestionDB: function () {
-      this.$http.get(config.api.uri + 'questionDB').then((response) => {
+      this.$http.get(config.api.uri + 'rs/questionsGen/' + this.$route.params.topicId).then((response) => {
         this.questionDB = response.body
       }, (response) => {
 
@@ -93,16 +94,29 @@ export default {
       this.getNewQuestion()
       this.notifications = []
     },
+    removeQuestionGen: function () {
+      if (this.questionDB_ident > 0) {
+        this.$http.delete(config.api.uri + 'rs/questionsGen/' + this.questionDB[this.questionDB_ident - 1]._id).then((response) => {
+          this.questionDB.splice(this.questionDB_ident - 1, 1)
+          this.getNewQuestion()
+        }, (response) => {
+          this.notifications.push({
+            type: 'danger',
+            message: 'Не получилось удалить'
+          })
+        })
+      }
+    },
     getNewQuestion: function () {
-      let artistIn = this.questionDB[this.questionDB_ident - 1].author
+      let artistIn = this.questionDB[this.questionDB_ident - 1].answerRight
       this.$http.get(config.api.uri + 'rs/similarArtists?artist=' + artistIn).then((response) => {
         let similarAuthors = response.body
-        document.getElementById('question_answer1').value = this.questionDB[this.questionDB_ident - 1].author
+        document.getElementById('question_answer1').value = this.questionDB[this.questionDB_ident - 1].answerRight
         for (let i = 0; i < similarAuthors.length; i++) {
           document.getElementById('question_answer' + (i + 2)).value = similarAuthors[i].name
         }
-        this.question.imageUrl = this.questionDB[this.questionDB_ident - 1].imgUri
-        this.question.information.text = this.questionDB[this.questionDB_ident - 1].author + '. ' + this.questionDB[this.questionDB_ident - 1].information
+        this.question.imageUrl = this.questionDB[this.questionDB_ident - 1].imageUrl
+        this.question.information.text = this.questionDB[this.questionDB_ident - 1].answerRight + '. ' + this.questionDB[this.questionDB_ident - 1].information.text
       }, (response) => {
         this.clearAnswers()
         this.notifications.push({
@@ -136,6 +150,7 @@ export default {
             message: 'Вопрос успешно создан'
           })
           this.answers = []
+          this.removeQuestionGen()
         }, (response) => {
           this.notifications.push({
             type: 'danger',
@@ -170,6 +185,6 @@ export default {
     max-height: 500px;
   }
   .me {
-    width: 100px;
+    width: 300px;
   }
 </style>
