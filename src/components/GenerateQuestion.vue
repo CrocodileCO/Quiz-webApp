@@ -38,7 +38,9 @@
     </form>
       </div>
       <div class="col-md-6">
-        <img v-show="question.imageUrl" v-bind:src="question.imageUrl" id="questionDB_ident" alt="">
+        <div class="h">
+          <img v-show="question.imageUrl" v-bind:src="question.imageUrl" id="questionDB_ident" alt="">
+        </div>
         <div class="input-group me">
           <input type="text" v-model="questionDB_ident" class="form-control" @change="getNewQuestion">
           <span class="input-group-btn">
@@ -186,5 +188,8 @@ export default {
   }
   .me {
     width: 300px;
+  }
+  .h {
+    height: 500px;
   }
 </style>
