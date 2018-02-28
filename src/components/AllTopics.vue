@@ -14,7 +14,7 @@
     <div v-for="group in groups"
     :key="group._id">
     <h3>{{group.title}}
-      <span><router-link :to="{ name: 'EditGroup', params: { groupId: group._id }}">редактировать</router-link></span>
+      <span><router-link v-if="groups.length > 0" :to="{ name: 'EditGroup', params: { groupId: group._id }}">редактировать</router-link></span>
       </h3>
       <table class="table table-hover">
         <!-- <thead>
