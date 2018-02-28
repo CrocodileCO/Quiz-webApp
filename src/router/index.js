@@ -15,6 +15,8 @@ import CreateArtist from '@/components/rs/CreateArtist'
 import DeleteArtist from '@/components/rs/DeleteArtist'
 import CreateArtStyle from '@/components/rs/CreateArtStyle'
 import GenerateQuestion from '@/components/GenerateQuestion'
+import CreateGroup from '@/components/CreateGroup'
+import EditGroup from '@/components/EditGroup'
 
 Vue.use(Router)
 Vue.use(VueResource)
@@ -90,6 +92,16 @@ export default new Router({
       path: 'rs/gen_question',
       name: 'GenerateQuestion',
       component: GenerateQuestion
+    },
+    {
+      path: '/create_group',
+      name: 'CreateGroup',
+      component: CreateGroup
+    },
+    {
+      path: '/edit_group',
+      name: 'EditGroup',
+      component: EditGroup
     }
   ]
 })
