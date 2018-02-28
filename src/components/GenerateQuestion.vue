@@ -135,36 +135,36 @@ export default {
       this.answers.push(new Answer(4, document.getElementById('question_answer4').value))
       this.question.answers = this.answers
       // console.log(this.question)
-      this.$http.post('https://api.imgur.com/3/upload', this.question.imageUrl, {
+      // this.$http.post('https://api.imgur.com/3/upload', this.question.imageUrl, {
+      //   headers: {
+      //     'Content-Type': 'application/json',
+      //     'Authorization': 'Client-ID d0b4d4481fe626b'
+      //   }
+      // }).then((response) => {
+      // this.question.imageUrl = response.body.data.link
+      this.$http.post(config.api.uri + 'questions/', this.question, {
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Client-ID d0b4d4481fe626b'
+          'Content-Type': 'application/json'
         }
       }).then((response) => {
-        this.question.imageUrl = response.body.data.link
-        this.$http.post(config.api.uri + 'questions/', this.question, {
-          headers: {
-            'Content-Type': 'application/json'
-          }
-        }).then((response) => {
-          this.notifications.push({
-            type: 'success',
-            message: 'Вопрос успешно создан'
-          })
-          this.answers = []
-          this.removeQuestionGen()
-        }, (response) => {
-          this.notifications.push({
-            type: 'danger',
-            message: 'Вопрос не создан, что-то пошло не так'
-          })
+        this.notifications.push({
+          type: 'success',
+          message: 'Вопрос успешно создан'
         })
+        this.answers = []
+        this.removeQuestionGen()
       }, (response) => {
         this.notifications.push({
-          type: 'info',
-          message: 'Не отправил картинку на imgur :-(('
+          type: 'danger',
+          message: 'Вопрос не создан, что-то пошло не так'
         })
       })
+      // }, (response) => {
+      //   this.notifications.push({
+      //     type: 'info',
+      //     message: 'Не отправил картинку на imgur :-(('
+      //   })
+      // })
     },
     clearAnswers: function () {
       for (let i = 1; i <= 4; i++) {
