@@ -118,7 +118,7 @@ export default {
           document.getElementById('question_answer' + (i + 2)).value = similarAuthors[i].name
         }
         this.question.imageUrl = this.questionDB[this.questionDB_ident - 1].imageUrl
-        this.question.information.text = this.questionDB[this.questionDB_ident - 1].answerRight + '. ' + this.questionDB[this.questionDB_ident - 1].information.text
+        this.question.information.text = this.questionDB[this.questionDB_ident - 1].answerRight + '. ' + '"' + this.questionDB[this.questionDB_ident - 1].information.text + '"'
       }, (response) => {
         this.clearAnswers()
         this.notifications.push({
