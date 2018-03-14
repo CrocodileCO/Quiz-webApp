@@ -1,6 +1,6 @@
 <template>
   <div id="delete-artist">
-    <h1>Удалить {{ artist.title }} из базы</h1>
+    <h1>Удалить {{ artist.name }} из базы</h1>
     <p>
       <router-link :to="{ name: 'Artists' }">Вернуться к списку художников</router-link>
     </p>

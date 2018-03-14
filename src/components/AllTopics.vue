@@ -32,10 +32,10 @@
           <td>{{(index+1)}}</td>
             <td><a v-bind:href="topic.imageUrl" target="_blank"><img v-bind:src="topic.imageUrl" width="40" height="40" alt=""></a></td>
             <td>{{ topic.title }}</td>
-            <td>
+            <td style="text-align:right;">
               <router-link :to="{name: 'Questions', params: { topicId: topic._id, topicTitle: topic.title }}" class="btn btn-default">вопросы</router-link>
-              <router-link :to="{name: 'EditTopic', params: { _id: topic._id }}" class="btn btn-primary">редактировать</router-link>
-              <router-link :to="{name: 'DeleteTopic', params: { _id: topic._id }}" class="btn btn-danger">удалить</router-link>
+              <router-link :to="{name: 'EditTopic', params: { topicId: topic._id }}" class="btn btn-primary">редактировать</router-link>
+              <router-link :to="{name: 'DeleteTopic', params: { topicId: topic._id }}" class="btn btn-danger">удалить</router-link>
             </td>
           </tr>
         </tbody>

@@ -22,6 +22,7 @@ Vue.use(Router)
 Vue.use(VueResource)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -34,62 +35,62 @@ export default new Router({
       component: CreateTopic
     },
     {
-      path: '/delete_topic',
+      path: '/:topicId/delete_topic',
       name: 'DeleteTopic',
       component: DeleteTopic
     },
     {
-      path: '/edit_topic',
+      path: '/:topicId/edit_topic',
       name: 'EditTopic',
       component: EditTopic
     },
     {
-      path: '/questions',
+      path: '/:topicId/questions',
       name: 'Questions',
       component: Questions
     },
     {
-      path: '/create_questions',
+      path: '/:topicId/create_questions',
       name: 'CreateQuestion',
       component: CreateQuestion
     },
     {
-      path: '/edit_questions',
+      path: '/:topicId/:questionId/edit_questions',
       name: 'EditQuestion',
       component: EditQuestion
     },
     {
-      path: '/delete_questions',
+      path: '/:topicId/:questionId/delete_questions',
       name: 'DeleteQuestion',
       component: DeleteQuestion
     },
     {
-      path: 'rs/artists',
+      path: '/rs/artists',
       name: 'Artists',
       component: Artists
     },
     {
-      path: 'rs/edit_artist',
+      path: '/rs/:artistId/edit_artist',
       name: 'EditArtist',
       component: EditArtist
     },
     {
-      path: 'rs/create_artist',
+      path: '/rs/create_artist',
       name: 'CreateArtist',
       component: CreateArtist
     },
     {
-      path: 'rs/delete_artist',
+      path: '/rs/:artistId/delete_artist',
       name: 'DeleteArtist',
       component: DeleteArtist
     },
     {
-      path: 'rs/create_artstyle',
+      path: '/rs/create_artstyle',
       name: 'CreateArtStyle',
       component: CreateArtStyle
     },
     {
-      path: 'rs/gen_question',
+      path: '/rs/:topicId/gen_question',
       name: 'GenerateQuestion',
       component: GenerateQuestion
     },
@@ -99,7 +100,7 @@ export default new Router({
       component: CreateGroup
     },
     {
-      path: '/edit_group',
+      path: '/:groupId/edit_group',
       name: 'EditGroup',
       component: EditGroup
     }

@@ -31,7 +31,7 @@ export default {
 
   methods: {
     getTopic: function () {
-      this.$http.get(config.api.uri + 'topics/' + this.$route.params._id).then((response) => {
+      this.$http.get(config.api.uri + 'topics/' + this.$route.params.topicId).then((response) => {
         this.topic = response.body
       }, (response) => {
 
@@ -39,7 +39,7 @@ export default {
     },
 
     deleteTopic: function () {
-      this.$http.delete(config.api.uri + 'topics/' + this.$route.params._id, this.topic, {
+      this.$http.delete(config.api.uri + 'topics/' + this.$route.params.topicId, this.topic, {
         headers: {
           'Content-Type': 'application/json'
         }
