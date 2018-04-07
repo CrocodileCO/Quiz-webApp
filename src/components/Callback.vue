@@ -6,6 +6,7 @@
 export default {
   name: 'callback',
   mounted () {
+    console.log('zz')
     this.$auth.handleAuthentication().then((data) => {
       this.$router.push({ name: 'AllTopics' })
     })

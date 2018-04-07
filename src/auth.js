@@ -68,8 +68,11 @@ let auth = new Vue({
       return new Date().getTime() < this.expiresAt
     },
     handleAuthentication () {
+      console.log('qq')
       return new Promise((resolve, reject) => {
         webAuth.parseHash((err, authResult) => {
+          console.log(authResult)
+          console.log(err)
           if (authResult && authResult.accessToken && authResult.idToken) {
             this.expiresAt = authResult.expiresIn
             this.accessToken = authResult.accessToken

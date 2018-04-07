@@ -10,7 +10,7 @@
     "lint": "eslint --ext .js,.vue src",
     "build": "node build/build.js",
     "git_publish": "npm run build && rm -rf docs; cp -r dist docs && sed -i -e 's/src=\\//src=/g' docs/index.html ; sed -i -e 's/href=\\//href=/g' docs/index.html",
-    "publish": "npm run build && rm -rf docs/* && echo 'crocodileco.tk' > docs/CNAME; cp -r dist/* docs/ && sed -i -e 's@src=\\/@src=@g' docs/index.html ; sed -i -e 's@href=\\/@href=@g' docs/index.html"
+    "publish": "npm run build && rm -rf docs/* && echo 'crocodileco.tk' > docs/CNAME && cp 404.html docs/; cp -r dist/* docs/ && sed -i -e 's@src=\\/@src=@g' docs/index.html ; sed -i -e 's@href=\\/@href=@g' docs/index.html"
   },
   "dependencies": {
     "auth0-js": "^9.4.2",

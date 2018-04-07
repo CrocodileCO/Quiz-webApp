@@ -3,6 +3,6 @@ module.exports = {
     uri: 'https://eggdance.herokuapp.com/api/'
   },
   auth: {
-    callbackUri: 'http://crocodileco.tk/#/callback'
+    callbackUri: 'http://crocodileco.tk/callback'
   }
 }

@@ -25,7 +25,7 @@ Vue.use(Router)
 Vue.use(VueResource)
 
 const router = new Router({
-  // mode: 'history',
+  mode: 'history',
   props: true,
   routes: [
     {
