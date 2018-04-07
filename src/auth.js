@@ -1,12 +1,13 @@
 import auth0 from 'auth0-js'
 import Vue from 'vue'
+import config from './config'
 
 // exchange the object with your own from the setup step above.
 let webAuth = new auth0.WebAuth({
   domain: 'crocodileco.auth0.com',
   clientID: 'nbRY9490c82brEw7b3M31v4PUTKdUZrV',
   // make sure this line is contains the port: 8080
-  redirectUri: 'http://crocodileco.tk/#/callback',
+  redirectUri: config.auth.callbackUri,
   // we will use the api/v2/ to access the user information as payload
   audience: 'https://' + 'crocodileco.auth0.com' + '/api/v2/',
   responseType: 'token id_token',
