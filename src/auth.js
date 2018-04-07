@@ -6,7 +6,7 @@ let webAuth = new auth0.WebAuth({
   domain: 'crocodileco.auth0.com',
   clientID: 'nbRY9490c82brEw7b3M31v4PUTKdUZrV',
   // make sure this line is contains the port: 8080
-  redirectUri: 'http://localhost:8080/callback',
+  redirectUri: 'http://crocodileco.tk/callback',
   // we will use the api/v2/ to access the user information as payload
   audience: 'https://' + 'crocodileco.auth0.com' + '/api/v2/',
   responseType: 'token id_token',
