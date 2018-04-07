@@ -17,12 +17,15 @@ import CreateArtStyle from '@/components/rs/CreateArtStyle'
 import GenerateQuestion from '@/components/GenerateQuestion'
 import CreateGroup from '@/components/CreateGroup'
 import EditGroup from '@/components/EditGroup'
+import RecSystem from '@/components/rs2/RecSystem'
+import Criterions from '@/components/rs2/Criterions'
 
 Vue.use(Router)
 Vue.use(VueResource)
 
 export default new Router({
-  mode: 'history',
+  // mode: 'history',
+  props: true,
   routes: [
     {
       path: '/',
@@ -103,6 +106,16 @@ export default new Router({
       path: '/:groupId/edit_group',
       name: 'EditGroup',
       component: EditGroup
+    },
+    {
+      path: '/topics/:topicId/rs2',
+      name: 'RecSystem',
+      component: RecSystem
+    },
+    {
+      path: '/rs2/:recSystemId/criterions',
+      name: 'Criterions',
+      component: Criterions
     }
   ]
 })

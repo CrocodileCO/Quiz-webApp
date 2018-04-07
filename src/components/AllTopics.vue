@@ -34,6 +34,7 @@
             <td>{{ topic.title }}</td>
             <td style="text-align:right;">
               <router-link :to="{name: 'Questions', params: { topicId: topic._id, topicTitle: topic.title }}" class="btn btn-default">вопросы</router-link>
+              <router-link :to="{name: 'RecSystem', params: { topicId: topic._id}}" class="btn btn-info">рек. система</router-link>
               <router-link :to="{name: 'EditTopic', params: { topicId: topic._id }}" class="btn btn-primary">редактировать</router-link>
               <router-link :to="{name: 'DeleteTopic', params: { topicId: topic._id }}" class="btn btn-danger">удалить</router-link>
             </td>
